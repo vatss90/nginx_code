@@ -39,7 +39,7 @@ pipeline {
 }
 stage('push') {
       steps {
-       sh 'docker push vatss90/nginx'
+       sh 'docker push vatss90/nginx:v1'
 
       }
 }
