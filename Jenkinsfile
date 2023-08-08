@@ -1,6 +1,4 @@
 pipeline {
-   enviroment {
-     REPO_NAME="vatss90/nginx_new"
 
   agent {
     node {
@@ -11,6 +9,7 @@ pipeline {
 }
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+    REPO_NAME = "vatss90/nginx_new"
   }
   stages {
     stage('cloing') {
@@ -31,7 +30,7 @@ pipeline {
 			sh 'docker build -t ${REPO_NAME}:${env.GIT_COMMIT[0..6]} .'
 			}
 
-
+}
 
     stage('Login') {
       steps {
