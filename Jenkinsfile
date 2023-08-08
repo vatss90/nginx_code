@@ -7,7 +7,7 @@ pipeline {
 
 }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('vatss90')
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
   stages {
     stage('cloing') {
