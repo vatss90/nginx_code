@@ -1,16 +1,15 @@
 pipeline {
     agent any
     stages {
-        stage('checkout') {
-            steps {
-              checkout([$class: 'GitSCM', 
-                branches: [[name: '*/main']],
-                doGenerateSubmoduleConfigurations: false,
-                extensions: [[$class: 'CleanCheckout']],
-                submoduleCfg: [], 
-                userRemoteConfigs: [[url: 'https://github.com/vatss90/nginx_code.git']]])
-              sh "ls -ltr"
-          }
-        }
-    }
+        stage('checkout scm') {
+            script {
+              checkout scm
+
 }
+
+}
+
+}
+
+}
+
