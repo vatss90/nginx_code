@@ -33,13 +33,13 @@ pipeline {
    stage('bulid') {
       steps {
  script { 
-        sh 'docker build -t  $REPO_NAME:$GIT_COMMIT .'
+        sh 'docker build -t  $REPO_NAME:$GIT_COMMIT[0..6] .'
   }
       }      
 }
 stage('push') {
       steps {
-       sh 'docker push $REPO_NAME:$GIT_COMMIT'
+       sh 'docker push $REPO_NAME:$GIT_COMMIT[0..6]'
 
       }
 }
