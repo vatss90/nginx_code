@@ -47,7 +47,7 @@ stage('push') {
 stage('Pass image to cdbuild'){
   steps{
      script{
-       build job: 'nginx-cd',
+       build job: 'nginx-cd_new',
        parameters: [string(name:'IMAGE_TAG', value:"${GIT_COMMIT[0..6]}")]
        parameters: [string(name:'REPOSITORY_NAME', value:"$REPO_NAME")]
 
