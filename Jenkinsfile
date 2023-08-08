@@ -37,7 +37,12 @@ pipeline {
   }
       }      
 }
+stage('push') {
+      steps {
+       sh 'docker push vatss90/nginx'
 
+      }
+}
 }
   post {
     always {
