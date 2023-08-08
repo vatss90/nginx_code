@@ -33,13 +33,13 @@ pipeline {
    stage('bulid') {
       steps {
  script { 
-        sh 'docker build -t  $(REPO_NAME):v1 .'
+        sh 'docker build -t  $REPO_NAME:v1 .'
   }
       }      
 }
 stage('push') {
       steps {
-       sh 'docker push $(REPO_NAME):v1'
+       sh 'docker push $REPO_NAME:v1'
 
       }
 }
