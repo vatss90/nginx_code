@@ -1,15 +1,28 @@
 pipeline {
-    agent any
-    stages {
-        stage('checkout scm') {
-            script {
-              checkout scm
+  agent any
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('vatss90')
+  }
+  stages {
+    stage('cloing') {
+      steps {
+        
+        script {
 
+            checkout scm  
+
+      }
+}    
 }
-
+    stage('Login') {
+      steps {
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+      }
+    }
+  }
+  post {
+    always {
+      sh 'docker logout'
+    }
+  }
 }
-
-}
-
-}
-
