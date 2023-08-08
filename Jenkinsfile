@@ -1,4 +1,7 @@
 pipeline {
+   enviroment {
+     REPO_NAME="vatss90/nginx_new"
+
   agent {
     node {
 
@@ -20,6 +23,15 @@ pipeline {
       }
 }    
 }
+
+stage ('image creation') {
+     
+                steps {
+				sh 'docker build -t ${REPO_NAME}:${env.GIT_COMMIT[0..6]} .'
+			}
+
+
+
     stage('Login') {
       steps {
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
