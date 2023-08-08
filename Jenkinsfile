@@ -39,7 +39,7 @@ pipeline {
 }
 stage('push') {
       steps {
-       sh 'docker push $REPO_NAME:$GIT_COMMIT[0..6]'
+       sh "docker push $REPO_NAME:${GIT_COMMIT[0..6]}"
 
       }
 }
