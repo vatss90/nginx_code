@@ -32,8 +32,10 @@ pipeline {
 
    stage('bulid') {
       steps {
-       sh 'docker build -t  vatss90/nginx:${env.GIT_COMMIT[0..6]} .'
+ script { 
+        sh 'docker build -t  vatss90/nginx:${env.GIT_COMMIT[0..6]} .'
   }
+      }      
 }
 
 }
