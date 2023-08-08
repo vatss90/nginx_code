@@ -22,12 +22,13 @@ pipeline {
 
       }
 }    
+
 }
 
-stage ('image creation') {
+    stage('image creation') {
      
                 steps {
-				sh 'docker build -t ${REPO_NAME}:${env.GIT_COMMIT[0..6]} .'
+			sh 'docker build -t ${REPO_NAME}:${env.GIT_COMMIT[0..6]} .'
 			}
 
 
